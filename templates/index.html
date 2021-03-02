@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">	</link>
+  <link rel="icon" href="data:,">
+	<title>Nomad News | {{mode}}</title>
+</head>
+
+<body>
+	<header>
+		<h1>Nomad News</h1>
+		<div>
+			Order by:
+			<a href="/?order_by=popular">Popular</a>
+			|
+			<a href="/?order_by=new">New</a>
+		</div>
+	</header>
+
+	<main>
+		<div>
+			{%for i in range(length)%}
+			<div>
+				<div>
+					<a href=/{{news[i][ 'id']}}><h3>{{news[i]['title']}}</h3></a>
+					<a href={{news[i][ 'url']}}>({{news[i]['url']}})</a>
+				</div>
+				<div>
+          {{news[i]['points']}} points | By: {{news[i]['author']}} | {{news[i]['comments']}} comments
+        </div>
+			</div>
+			<hr> {%endfor%}
+		</div>
+	</main>
+
+</body>
+
+</html>

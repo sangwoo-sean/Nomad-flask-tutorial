@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <title>Nomad News | {{news['title']}}</title>
+</head>
+
+<body>
+  <header>
+		<h1>{{news['title']}}</h1>
+		<div>
+			{{news['points']}} points | By {{news['author']}} | 
+			<a href={{news['url']}}>{{news['url']}}</a>
+		</div>
+	</header>
+  <main>
+    {%for i in range(length)%}
+      {% if comments[i]['author']%}
+        <div>
+          <strong>{{comments[i]['author']}}:</strong>
+          <p>{{comments[i]['text']|safe}}</p>
+        </div>
+        <hr>
+      {% else %}
+        <div>
+          [deleted]
+        </div>
+        <hr>
+      {% endif %}
+    {%endfor%}
+  </main>
+
+</body>
+
+</html>
